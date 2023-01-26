@@ -3,7 +3,7 @@ from api.models.note import NoteModel
 from api.schemas.user import UserSchema
 
 
-#       schema        flask-restful
+#       schema           flask
 # object ------>  dict ----------> json
 
 class NoteSchema(ma.SQLAlchemySchema):

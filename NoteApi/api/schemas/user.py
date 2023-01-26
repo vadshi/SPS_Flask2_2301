@@ -2,7 +2,7 @@ from api import ma
 from api.models.user import UserModel
 
 
-#       schema        flask-restful
+#       schema          flask
 # object ------>  dict ----------> json
 
 
@@ -10,7 +10,8 @@ from api.models.user import UserModel
 class UserSchema(ma.SQLAlchemySchema):
     class Meta:
         model = UserModel
-        fields = ('id', 'username', "is_staff")
+        # Явно указали поля, которые будут использоваться схемой
+        fields = ('id', 'username', "is_staff", "role")
 
 
 user_schema = UserSchema()

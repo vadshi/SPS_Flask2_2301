@@ -4,7 +4,7 @@ from api.schemas.user import user_schema, users_schema
 from utility.helpers import get_object_or_404
 
 
-@app.route("/users/<int:user_id>")
+@app.route("/users/<int:user_id>", methods=["GET"])
 def get_user_by_id(user_id):
     user = get_object_or_404(UserModel, user_id)
     if user is None:
@@ -14,6 +14,12 @@ def get_user_by_id(user_id):
 
 @app.route("/users")
 def get_users():
+    """
+   Get all Users
+   ---
+   tags:
+     - Users
+   """
     users = UserModel.query.all()
     return users_schema.dump(users), 200
 

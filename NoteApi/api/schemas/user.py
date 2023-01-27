@@ -11,7 +11,17 @@ class UserSchema(ma.SQLAlchemySchema):
     class Meta:
         model = UserModel
         # Явно указали поля, которые будут использоваться схемой
-        fields = ('id', 'username', "is_staff", "role")
+        fields = ('id', 'username', "role")
+
+
+# Десериализация запроса(request)
+class UserRequestSchema(ma.SQLAlchemySchema):
+    class Meta:
+        model = UserModel
+
+    username = ma.Str(required=True)
+    password = ma.Str()
+    role = ma.Str()
 
 
 user_schema = UserSchema()
